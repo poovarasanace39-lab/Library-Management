@@ -7,6 +7,8 @@ import StaffDashboard from './components/StaffDashboard'
 import AdminDashboard from './components/AdminDashboard'
 import LandingPage from './components/LandingPage'
 
+
+
 // Theme Context
 const ThemeContext = createContext();
 
@@ -63,7 +65,11 @@ function App() {
 
     // Sync Theme
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
         localStorage.setItem('theme', theme);
     }, [theme]);
 
